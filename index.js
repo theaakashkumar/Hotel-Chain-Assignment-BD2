@@ -293,7 +293,7 @@ function filterByAmenity(amenity, hotel) {
 app.get('/hotels/filter/amenity', (req, res) => {
   let amenity = req.query.amenity;
   let result = hotels.filter((hotel) => filterByAmenity(amenity, hotel));
-  res.json({ hotel: result });
+  res.json({ hotels: result });
   // console.log(result);
   // /hotels/filter/amenity?amenity=spa
 });
