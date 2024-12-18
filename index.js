@@ -261,7 +261,7 @@ app.get('/hotels/sort/rating', (req, res) => {
   //   /hotels/sort/rating?rating=low-to-high
 });
 
-function sortByRating(reviews, hotel1, hotel2) {
+function sortByReviews(reviews, hotel1, hotel2) {
   let result;
   if (reviews === 'most-to-least') {
     result = hotel2.reviews - hotel1.reviews;
@@ -278,7 +278,7 @@ function sortByRating(reviews, hotel1, hotel2) {
 app.get('/hotels/sort/reviews', (req, res) => {
   let reviews = req.query.reviews;
   let copyHotels = hotels.slice();
-  copyHotels.sort((hotel1, hotel2) => sortByRating(reviews, hotel1, hotel2));
+  copyHotels.sort((hotel1, hotel2) => sortByReviews(reviews, hotel1, hotel2));
 
   res.json({ hotels: copyHotels });
 
